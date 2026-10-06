@@ -1,0 +1,5 @@
+1.0.0
+- Initial standalone Address autocomplete plugin for Formidable Forms.
+- Native global settings and premium-compatible saved Address options.
+- Local dashboard and four non-functional editor promotions.
+- Standalone Google Places service without WPGeo Framework or licensing.

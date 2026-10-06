@@ -1,0 +1,54 @@
+/** Styles only the standalone autocomplete dropdown, not other WPGeo widgets. */
+.frmgeo-has-autocomplete,
+.gform_wrapper .frmgeo-has-autocomplete {
+	position: relative;
+}
+
+/* Outrank Formidable Forms' theme reset even when it loads after this file. */
+.frmgeo-has-autocomplete .frmgeo-autocomplete-suggestions {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 10000;
+	width: 100%;
+	background: #fff;
+	color: #1f1f1f;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-shadow: 0 4px 8px rgb(0 0 0 / 12%);
+	box-sizing: border-box;
+}
+
+.frmgeo-autocomplete-suggestions .frmgeo-autocomplete-dropdown {
+	margin: 0;
+	padding: 0;
+	max-height: 250px;
+	overflow-y: auto;
+	list-style: none;
+}
+
+.frmgeo-autocomplete-suggestions .frmgeo-autocomplete-dropdown li {
+	margin: 0;
+	padding: 10px 14px;
+	font-size: 14px;
+	line-height: 1.5;
+	cursor: pointer;
+	border-bottom: 1px solid #eee;
+}
+
+.frmgeo-autocomplete-suggestions .frmgeo-autocomplete-dropdown li.active,
+.frmgeo-autocomplete-suggestions .frmgeo-autocomplete-dropdown li:hover {
+	background: #eef4ff;
+}
+
+.frmgeo-autocomplete-suggestions .frmgeo-autocomplete-attribution {
+	padding: 8px 10px;
+	font-family: Roboto, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	white-space: nowrap;
+	text-align: right;
+	color: #5e5e5e;
+}

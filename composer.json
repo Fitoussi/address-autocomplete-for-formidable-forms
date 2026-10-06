@@ -1,0 +1,36 @@
+{
+	"name": "oddlylogical/address-autocomplete-for-formidable-forms",
+	"type": "wordpress-plugin",
+	"description": "Standalone Address autocomplete for Formidable Forms",
+	"keywords": [
+		"wordpress",
+		"formidable",
+		"autocomplete",
+		"google-places"
+	],
+	"homepage": "https://formidablegeolocation.com/",
+	"license": "GPL-3.0-or-later",
+	"support": {
+		"issues": "https://formidablegeolocation.com/support"
+	},
+	"config": {
+		"github-protocols": [
+			"https"
+		],
+		"prepend-autoloader": false,
+		"platform": {
+			"php": "7.4.0"
+		}
+	},
+	"require": {
+		"php": ">=7.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"FormidableGeolocationAutocomplete\\": "src/"
+		}
+	},
+	"scripts": {
+		"test": "php tests/contracts.php"
+	}
+}

@@ -1,0 +1,15 @@
+// Scoped native builder additions; no framework styles.
+.frmgeoac-options {
+	margin: 16px 0;
+	summary { cursor: pointer; font-weight: 600; padding: 12px 0; }
+	label { display: block; margin-bottom: 6px; }
+	select, input[type="text"] { width: 100%; }
+	[hidden] { display: none !important; }
+}
+.frmgeoac-multiple { min-height: 140px; }
+.frmgeoac-promotions {
+	display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 16px 0;
+	h3 { grid-column: 1 / -1; margin: 0; }
+	a { display: flex; gap: 6px; align-items: center; padding: 10px; border: 1px dashed #c5cbd3; border-radius: 5px; color: #66717f; background: #f6f8fb; text-decoration: none; }
+	a:hover, a:focus { color: #123d6c; border-color: #123d6c; }
+}

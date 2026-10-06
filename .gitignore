@@ -1,0 +1,47 @@
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# folders
+tests/
+!tests/
+bin/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+*.code-workspace
+!address-autocomplete-for-formidable-forms.code-workspace
+
+# Grunt
+/node_modules/
+
+# ignore composer vendor directory
+/vendor/
+/tools/vendor/
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.dist
+!tools/phpcs.xml.dist
+!phpunit.xml.dist
+/dist/
+
+# Temporary files
+*~

@@ -1,0 +1,654 @@
+# Copyright (C) 2026 Eyal Fitoussi
+# This file is distributed under the GPL-3.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Address Autocomplete for Formidable Forms 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/address-autocomplete-for-formidable-forms\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-06T21:09:06+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: address-autocomplete-for-formidable-forms\n"
+
+#. Plugin Name of the plugin
+#: address-autocomplete-for-formidable-forms.php
+msgid "Address Autocomplete for Formidable Forms"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: address-autocomplete-for-formidable-forms.php
+msgid "https://formidablegeolocation.com"
+msgstr ""
+
+#. Description of the plugin
+#: address-autocomplete-for-formidable-forms.php
+msgid "Modern Google Places autocomplete in dedicated and native Formidable Forms Address fields. Includes country and language controls, location bias and required suggestion selection. Requires Formidable Forms and your own Google API key."
+msgstr ""
+
+#. Author of the plugin
+#: address-autocomplete-for-formidable-forms.php
+msgid "Eyal Fitoussi"
+msgstr ""
+
+#. Author URI of the plugin
+#: address-autocomplete-for-formidable-forms.php
+msgid "https://www.wpgeo.com"
+msgstr ""
+
+#: src/Admin/Dashboard.php:60
+#: src/Admin/Settings.php:36
+msgid "Address Autocomplete"
+msgstr ""
+
+#: src/Admin/Dashboard.php:77
+#: src/Admin/Dashboard.php:164
+msgid "Overview"
+msgstr ""
+
+#: src/Admin/Dashboard.php:78
+msgid "Settings"
+msgstr ""
+
+#: src/Admin/Dashboard.php:79
+msgid "Docs"
+msgstr ""
+
+#: src/Admin/Dashboard.php:135
+msgid "Explore maps, current-location detection, dynamic fields, directions, nearby locations, and more with Formidable Geolocation."
+msgstr ""
+
+#: src/Admin/Dashboard.php:139
+msgid "Explore features"
+msgstr ""
+
+#: src/Admin/Dashboard.php:141
+msgid "View packages"
+msgstr ""
+
+#: src/Admin/Dashboard.php:165
+msgid "Compare Packages"
+msgstr ""
+
+#: src/Admin/Dashboard.php:166
+msgid "Help"
+msgstr ""
+
+#: src/Admin/Dashboard.php:167
+msgid "More Plugins"
+msgstr ""
+
+#: src/Admin/Dashboard.php:193
+msgid "Less typing. Better addresses."
+msgstr ""
+
+#: src/Admin/Dashboard.php:194
+msgid "Add our custom Address field, or enable autocomplete on a native Address field."
+msgstr ""
+
+#: src/Admin/Dashboard.php:214
+msgid "Maps, geocoding, dynamic fields, directions, nearby locations and more for Formidable Forms."
+msgstr ""
+
+#: src/Admin/Dashboard.php:219
+msgid "Build location-based searches and directories for your WordPress site."
+msgstr ""
+
+#: src/Admin/Dashboard.php:224
+msgid "Add geolocation tools and connected location fields to Formidable Forms."
+msgstr ""
+
+#: src/Admin/Dashboard.php:229
+msgid "Bring address, map and location workflows to Ninja Forms."
+msgstr ""
+
+#: src/Admin/Dashboard.php:234
+msgid "Add address autocomplete, maps, coordinates and directions to WPForms."
+msgstr ""
+
+#: src/Admin/Dashboard.php:239
+msgid "Add proximity searches and interactive maps to your WP Job Manager job board."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:25
+msgid "Free"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:26
+msgid "Starter"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:27
+msgid "Pro"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:28
+msgid "Agency"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:39
+msgid "Address autocomplete"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:40
+msgid "Google Places API (New) in a dedicated single-line field or native Address autofill."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:41
+msgid "Countries, place types, per-field language, location bias, global region and language, and required suggestion selection."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:48
+msgid "Interactive form maps"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:49
+msgid "Show connected locations and let visitors refine them with a draggable marker."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:50
+msgid "Customize map appearance, zoom, default location and marker behavior."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:57
+msgid "Geocoder & complete location data"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:58
+msgid "Store formatted addresses, coordinates and individual location components."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:59
+msgid "Connect addresses, maps and ordinary fields to shared geocoding results."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:66
+msgid "Dynamic location fields"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:67
+msgid "Populate city, region, postal code, coordinates and other location values."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:68
+msgid "Use connected values in native fields and your form workflows."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:75
+msgid "Current-location detection"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:76
+msgid "Offer a locator button or detect a location when the form loads."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:77
+msgid "Browser location requires visitor permission; optional IP location needs a provider."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:84
+msgid "Coordinate inputs"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:85
+msgid "Collect latitude and longitude directly."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:86
+msgid "A dedicated input for workflows where an address is not the starting point."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:93
+msgid "Standalone Locator & Reset fields"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:94
+msgid "Place current-location and reset buttons where they fit your form."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:95
+msgid "Separate controls complement the locator inside premium Address fields."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:102
+msgid "Directions & route displays"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:103
+msgid "Connect an origin, destination and waypoints, and display route details."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:104
+msgid "Route maps, summaries and turn-by-turn directions with connected fields."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:111
+msgid "Distance & travel time"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:112
+msgid "Calculate travel distance and duration or straight-line distance."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:113
+msgid "Use readable results or numeric distance and duration in form calculations."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:120
+msgid "Address validation"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:121
+msgid "Compare addresses with Google Address Validation recommendations."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:122
+msgid "Review corrections and validation results. Requires the Address Validation API."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:129
+msgid "Saved-entry maps"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:130
+msgid "Display a saved location on its own map or multiple locations together."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:131
+msgid "Single-entry and mashup map shortcodes outside your form."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:138
+msgid "Nearby locations & result panels"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:139
+msgid "Find destinations near a visitor and display selectable results."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:140
+msgid "Configure destination sources and results with an optional map."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:147
+msgid "Drawing Tools & Drawing Shape"
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:148
+msgid "Draw markers, lines, polygons, rectangles, circles and freehand shapes."
+msgstr ""
+
+#: src/Admin/DashboardFeatures.php:149
+msgid "Collect shapes and geometry outputs on a connected map."
+msgstr ""
+
+#: src/Admin/Settings.php:102
+msgid "Browser API Key"
+msgstr ""
+
+#: src/Admin/Settings.php:103
+msgid "Region Code"
+msgstr ""
+
+#: src/Admin/Settings.php:104
+#: src/Features/Form/Fields/Address/Settings.php:54
+msgid "Language"
+msgstr ""
+
+#: src/Admin/Settings.php:106
+msgid "Use your own Google browser API key with Maps JavaScript API and Places API (New) enabled. Region influences results; field country restrictions limit suggestions."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:22
+msgid "For Formidable Forms"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:27
+msgid "Explore Plugins"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:28
+#: src/Admin/views/dashboard.php:184
+msgid "Open Settings"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:29
+msgid "View Live Demos"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:33
+msgid "Product overview sections"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:43
+msgid "Your installed package"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:45
+msgid "Modern Google Places autocomplete, included free. Collect addresses with a dedicated single-line field or native Address autofill, tailor suggestions to your audience, and require a selection when it matters."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:47
+msgid "Explore my features"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:51
+msgid "See what else is available"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:53
+msgid "Location tools require your own Google API configuration. Google service usage and billing are separate."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:56
+msgid "Installed package"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:58
+msgid "Badges identify included tools. Follow their setup guides to put them to work."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:59
+msgid "Configuration & settings"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:70
+#: src/Admin/views/dashboard.php:78
+msgid "Included in your package"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:70
+msgid "Take your forms further"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:71
+msgid "Your available building blocks. Choose a tool and open its guide."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:71
+msgid "Other Formidable packages add these capabilities. Explore the demos or compare packages to find the right fit."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:78
+msgid "Available in other packages"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:86
+msgid "Screenshot placeholder"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:91
+msgid "Setup & documentation"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:94
+msgid "View demos"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:104
+msgid "Choose the tools your next project needs"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:105
+msgid "Starter adds connected location tools. Pro adds directions, distance, validation and entry maps. Agency also includes nearby locations and drawing tools."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:106
+#: src/Admin/views/dashboard.php:159
+msgid "View packages & pricing"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:111
+msgid "Find the right package for your project"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:112
+msgid "Your installed package is highlighted. Packages are alternative builds, not add-ons to stack together; site allowances and license status are separate from the feature list."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:113
+msgid "On narrow screens, scroll the comparison horizontally to see every package."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:114
+msgid "Feature comparison — scroll to see all columns"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:116
+msgid "Formidable package feature comparison"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:119
+msgid "Feature"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:124
+msgid "Installed"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:138
+msgid "Included"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:138
+msgid "Not included"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:158
+msgid "Google API usage and any required Formidable Forms or GEO my WP add-ons are separate. Included tools still need configuration; feature checks are not a license-status check."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:163
+msgid "More tools for your WordPress site"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:164
+msgid "Explore our other plugins. These descriptions are bundled locally; nothing is downloaded or installed from this page."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:171
+msgid "Learn more"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:177
+msgid "From installed to working"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:179
+msgid "Activate Formidable Forms and open this plugin’s native Settings screen."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:180
+msgid "Configure the Google services and API keys your location features require; enable billing and appropriate key restrictions."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:182
+msgid "Save your form before previewing. Test the complete visitor flow."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:185
+msgid "Google API setup guide"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:188
+msgid "Something not working?"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:189
+msgid "Check that autocomplete is enabled, then verify the browser API key, required Google services, billing and key restrictions."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:190
+msgid "Autocomplete fills an address after a visitor selects a suggestion. This free plugin does not provide current-location detection, manual geocoding or connected Dynamic fields."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:191
+msgid "Include the package name, field type and steps to reproduce when asking for help. Never share API keys or license keys in a public post."
+msgstr ""
+
+#: src/Admin/views/dashboard.php:193
+msgid "Browse documentation"
+msgstr ""
+
+#: src/Admin/views/dashboard.php:194
+msgid "View support options"
+msgstr ""
+
+#: src/Core/Bootstrap.php:46
+msgid "Address"
+msgstr ""
+
+#: src/Features/Form/Admin/FormEditor.php:56
+msgid "Autocomplete"
+msgstr ""
+
+#: src/Features/Form/Admin/FormEditor.php:89
+msgid "More location tools"
+msgstr ""
+
+#: src/Features/Form/Admin/FormEditor.php:90
+msgid "Map"
+msgstr ""
+
+#: src/Features/Form/Admin/FormEditor.php:90
+msgid "Directions"
+msgstr ""
+
+#: src/Features/Form/Admin/FormEditor.php:90
+msgid "Distance & Duration"
+msgstr ""
+
+#: src/Features/Form/Admin/FormEditor.php:90
+msgid "Address Validation"
+msgstr ""
+
+#: src/Features/Form/Admin/FormEditor.php:91
+msgid "Available with Formidable Geolocation"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Field.php:74
+msgid "Open Map"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:28
+msgid "Please select an address from the suggested results."
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:49
+msgid "Enable autocomplete"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:50
+msgid "Require address selection from suggestions"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:51
+msgid "Selection alert message"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:52
+msgid "Autocomplete Results Types"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:53
+msgid "Restrict by Countries"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:55
+msgid "Location Bias Type"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:56
+msgid "Latitude"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:57
+msgid "Longitude"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:58
+msgid "Radius in meters (maximum 50000)"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:59
+msgid "Southwest point (latitude,longitude)"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:60
+msgid "Northeast point (latitude,longitude)"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:61
+msgid "Restrict results to the bounds"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:69
+msgid "None"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:73
+msgid "Proximity"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:77
+msgid "Area Bounds"
+msgstr ""
+
+#: src/Features/Form/Fields/Address/Settings.php:85
+msgid "Default (global language)"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:487
+msgid "Regions"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:488
+msgid "Cities"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:489
+msgid "Street addresses"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:490
+msgid "Premises"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:491
+msgid "Postal codes"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:492
+msgid "Restaurants"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:493
+msgid "Lodging"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:494
+msgid "Stores"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:495
+msgid "Schools"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:496
+msgid "Hospitals"
+msgstr ""
+
+#: src/Helpers/ReferenceData.php:497
+msgid "Airports"
+msgstr ""
+
+#: src/Loader.php:39
+msgid "Address Autocomplete for Formidable Forms is not running because Formidable Geolocation is active. Deactivate the free plugin; your existing Address fields and settings remain available in premium."
+msgstr ""
+
+#: src/Loader.php:47
+msgid "Address Autocomplete requires Formidable Forms 6.23 or newer."
+msgstr ""
