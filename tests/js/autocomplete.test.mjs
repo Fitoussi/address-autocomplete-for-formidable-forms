@@ -22,7 +22,7 @@ async function fixture({duplicate = false, loading = false, failed = false} = {}
 	const {window} = dom;
 	const state = {requests: [], alerts: [], values: [], delay: null};
 	window.alert = message => state.alerts.push(message);
-	
+
 	let release;
 	const ready = new Promise(resolve => { release = resolve; });
 	state.release = release;
@@ -103,7 +103,7 @@ test('saved value preserved; selected suggestion synchronizes native values', as
 		assert.equal(input.value, 'Saved address');
 		await suggest(window, input); input.parentElement.querySelector('li').click(); await sleep(20);
 		assert.equal(input.value, '350 5th Avenue, Brooklyn, NY');
-		
+
 		assert.equal(state.alerts.length, 0);
 	} finally { dom.window.close(); }
 });

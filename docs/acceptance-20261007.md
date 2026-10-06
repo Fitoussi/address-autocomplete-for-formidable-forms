@@ -59,7 +59,7 @@ Both adapters have an explicit regression proving that committing a suggestion d
 ## Package
 
 Filename: address-autocomplete-for-formidable-forms.1.0.0.zip
-SHA-256: 403506cdd74cc5c8c6ebb181ce76c529536bd0a6c7e72d6477f7b539843f27f4
+SHA-256: 5633592a600985a4184492a59f9025f7ad90738dc101c2e83e19c1771f3febcd
 
 Readable JS/SCSS and frontend sourcemaps ship with the compiled assets.
 Development tools, tests, docs, editor files, node_modules and vendor are excluded.

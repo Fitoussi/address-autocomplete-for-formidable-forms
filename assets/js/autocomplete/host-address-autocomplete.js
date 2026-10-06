@@ -128,7 +128,7 @@ async function bindInput(input, wrapper, field, config) {
 
 /** Resolve each mounted Formidable instance without global field ID lookups. */
 export function initializeAutocomplete() {
-	
+
 	for (const [input, binding] of bindings) if (!input.isConnected) binding.destroy();
 	for (const data of Object.values(globalThis.frmgeoAutocompleteForms || {})) {
 		const roots = Array.from(document.querySelectorAll('form.frm-show-form')).filter(form => form.querySelector('input[name="form_id"]')?.value === String(data.formId));
