@@ -105,6 +105,10 @@ Product, demo, documentation and pricing links open our websites only when click
 == Screenshots ==
 
 1. Live Google Places suggestions in the dedicated Formidable Forms Address field. Google attribution remains visible.
+2. Dedicated single-line Address field options, including required suggestion selection, its alert message, result types, countries, language and location bias.
+3. Autocomplete options for Formidable Forms' native multipart Address field, available in host editions that provide that field.
+4. Global Google browser API key, region and language settings, with a link to the API setup guide.
+5. The plugin overview introduces the included standalone Address Autocomplete integration and links to its configuration.
 
 == Changelog ==
 

@@ -81,7 +81,9 @@ entry editing, existing forms and premium switching in both activation orders.
 Record tested host versions and any untested flows honestly. Use Plugin Check.
 Minimum-host compatibility and screenshots remain release gates unless verified.
 
-One real frontend screenshot is bundled in assets/screenshots/screenshot-1.png,
-with its matching readme caption. Additional native editor, global preferences
-and entry screenshots remain planned; do not relabel Gravity captures.
+Five real Formidable screenshots are bundled in assets/screenshots/screenshot-1.png
+through screenshot-5.png, with matching readme captions: live suggestions, dedicated
+field options, native Address options, global preferences and the plugin overview.
+Screenshot provenance is recorded in docs/screenshots.txt. Do not relabel captures
+from other hosts.
 GitHub publication and WordPress.org submission require separate approval.

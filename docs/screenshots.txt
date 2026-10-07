@@ -2,15 +2,42 @@ SCREENSHOT ASSETS — Formidable Forms
 
 assets/screenshots/screenshot-1.png
 Live Google Places suggestions in the dedicated Formidable Forms Address field.
-Captured from this plugin's own isolated local QA form on 2026-10-07.
-The image retains Google attribution and contains no API key or private entry.
-The matching directory caption is in readme.txt.
+Owner-captured on 2026-10-07; selected and approved in chat.
+Source: /Users/Fitoussi/screenshots/Screenshot 2026-10-07 at 17.42.55.png
+Dimensions: 971 x 717 pixels.
+Retains Google attribution; no API key or private entry.
 
-For an approved WordPress.org release, copy this file to the separate top-level
-SVN assets/screenshot-1.png directory, outside trunk. This pass stages a duplicate
-in the local submission-prep artifact only; nothing has been uploaded.
+assets/screenshots/screenshot-2.png
+Dedicated single-line Address field in the native Formidable builder, with autocomplete options.
+Owner-captured on 2026-10-07; selected and approved in chat.
+Source: /Users/Fitoussi/screenshots/Screenshot 2026-10-07 at 17.40.16.png
+Dimensions: 1523 x 1068 pixels.
 
-Additional editor/global-preference captures await a working dedicated signed-in
-screenshot browser and owner review. Formidable's native Address autofill and
-entry-map screenshots are also pending. Do not add captions for absent files.
+assets/screenshots/screenshot-3.png
+Autocomplete options for the host's native multipart Address field.
+Native Address availability depends on the installed Formidable edition.
+Owner-captured on 2026-10-07; selected and approved in chat.
+Source: /Users/Fitoussi/screenshots/Screenshot 2026-10-07 at 17.22.27.png
+Dimensions: 1493 x 1062 pixels.
+
+assets/screenshots/screenshot-4.png
+Global Google browser API key, region and language preferences with the setup-guide link.
+Owner-captured on 2026-10-07; selected and approved in chat.
+Source: /Users/Fitoussi/screenshots/Screenshot 2026-10-07 at 17.35.14.png
+Dimensions: 1290 x 950 pixels.
+API key is the visible placeholder YOUR_GOOGLE_MAPS_API_KEY, not a credential.
+
+assets/screenshots/screenshot-5.png
+Plugin overview introducing the included standalone autocomplete integration.
+Owner-captured on 2026-10-07; selected and approved in chat.
+Source: /Users/Fitoussi/screenshots/Screenshot 2026-10-07 at 17.36.57.png
+Dimensions: 1503 x 409 pixels.
+
+All five images are copied unchanged; owner originals remain untouched.
+Matching WordPress.org captions are in readme.txt in the same numeric order.
+For an approved WordPress.org release, copy these to the separate top-level
+SVN assets/screenshot-N.png directory, outside trunk. Duplicates are staged
+in the local screenshot artifact only; nothing has been uploaded.
+Overview-page image placeholders remain hidden as previously requested.
+Additional live native autofill and entry-map screenshots are optional future additions.
 No banner or icon is included in this candidate.
