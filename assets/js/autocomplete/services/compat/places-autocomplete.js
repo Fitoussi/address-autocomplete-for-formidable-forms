@@ -39,51 +39,40 @@ export function shouldUseLegacyPlacesFallback(error) {
 	}
 
 	const text = `${code} ${message} ${errorText} ${details}`;
-	const unavailableTypeError = error instanceof TypeError
-		&& (
-			text.includes('AUTOCOMPLETESUGGESTION')
-			|| text.includes('FETCHAUTOCOMPLETESUGGESTIONS')
-		);
-	const permissionFailure = code === '403'
-		|| code === 'PERMISSION_DENIED'
-		|| code === 'REQUEST_DENIED'
-		|| text.includes('PERMISSION_DENIED')
-		|| text.includes('REQUEST_DENIED');
-	const placesNewService = text.includes('PLACES API (NEW)')
-		|| text.includes('PLACES.GOOGLEAPIS.COM')
-		|| text.includes('AUTOCOMPLETEPLACES')
-		|| text.includes('AUTOCOMPLETESUGGESTION')
-		|| text.includes('FETCHAUTOCOMPLETESUGGESTIONS');
-	const unrelatedConfigurationFailure = text.includes('BILLING')
-		|| text.includes('REFERER')
-		|| text.includes('REFERRER')
-		|| (
-			text.includes('API KEY')
-			&& (text.includes('INVALID') || text.includes('EXPIRED'))
-		);
-	const unavailableService = text.includes('SERVICE_DISABLED')
-		|| text.includes('API_KEY_SERVICE_BLOCKED')
-		|| text.includes('ACCESS_NOT_CONFIGURED')
-		|| text.includes('API_NOT_ACTIVATED')
-		|| text.includes('NOT BEEN USED')
-		|| text.includes('NOT ENABLED')
-		|| (
-			text.includes('PLACES API (NEW)')
-			&& text.includes('IS DISABLED')
-		)
-		|| (
-			text.includes('REQUESTS TO THIS API')
-			&& text.includes('METHOD')
-			&& text.includes('BLOCKED')
-		);
+	const unavailableTypeError =
+		error instanceof TypeError &&
+		(text.includes('AUTOCOMPLETESUGGESTION') || text.includes('FETCHAUTOCOMPLETESUGGESTIONS'));
+	const permissionFailure =
+		code === '403' ||
+		code === 'PERMISSION_DENIED' ||
+		code === 'REQUEST_DENIED' ||
+		text.includes('PERMISSION_DENIED') ||
+		text.includes('REQUEST_DENIED');
+	const placesNewService =
+		text.includes('PLACES API (NEW)') ||
+		text.includes('PLACES.GOOGLEAPIS.COM') ||
+		text.includes('AUTOCOMPLETEPLACES') ||
+		text.includes('AUTOCOMPLETESUGGESTION') ||
+		text.includes('FETCHAUTOCOMPLETESUGGESTIONS');
+	const unrelatedConfigurationFailure =
+		text.includes('BILLING') ||
+		text.includes('REFERER') ||
+		text.includes('REFERRER') ||
+		(text.includes('API KEY') && (text.includes('INVALID') || text.includes('EXPIRED')));
+	const unavailableService =
+		text.includes('SERVICE_DISABLED') ||
+		text.includes('API_KEY_SERVICE_BLOCKED') ||
+		text.includes('ACCESS_NOT_CONFIGURED') ||
+		text.includes('API_NOT_ACTIVATED') ||
+		text.includes('NOT BEEN USED') ||
+		text.includes('NOT ENABLED') ||
+		(text.includes('PLACES API (NEW)') && text.includes('IS DISABLED')) ||
+		(text.includes('REQUESTS TO THIS API') && text.includes('METHOD') && text.includes('BLOCKED'));
 
-	return unavailableTypeError
-		|| (
-			!unrelatedConfigurationFailure
-			&& permissionFailure
-			&& placesNewService
-			&& unavailableService
-		);
+	return (
+		unavailableTypeError ||
+		(!unrelatedConfigurationFailure && permissionFailure && placesNewService && unavailableService)
+	);
 }
 
 /**
@@ -100,9 +89,9 @@ export function buildLegacyAutocompleteRequest(options = {}) {
 		? options.includedRegionCodes.filter(Boolean)
 		: [];
 	const types = Array.isArray(options.includedPrimaryTypes)
-		? options.includedPrimaryTypes.filter(Boolean).map((type) => (
-			type === 'street_address' ? 'address' : type
-		))
+		? options.includedPrimaryTypes
+				.filter(Boolean)
+				.map((type) => (type === 'street_address' ? 'address' : type))
 		: [];
 	let bounds = options.locationRestriction || options.locationBias || null;
 
@@ -150,9 +139,7 @@ export function buildLegacyAutocompleteRequest(options = {}) {
  * @returns {string[]} Legacy Places Details fields.
  */
 export function buildLegacyPlaceFields(fields = []) {
-	const mapped = fields
-		.map((field) => FIELD_MAP[field] || null)
-		.filter(Boolean);
+	const mapped = fields.map((field) => FIELD_MAP[field] || null).filter(Boolean);
 
 	return [...new Set([...REQUIRED_FIELDS, ...mapped])];
 }
@@ -240,10 +227,10 @@ class LegacyPlace {
 		this.formattedAddress = result.formatted_address || this.formattedAddress;
 		this.addressComponents = Array.isArray(result.address_components)
 			? result.address_components.map((component) => ({
-				longText: component.long_name || '',
-				shortText: component.short_name || '',
-				types: component.types || [],
-			}))
+					longText: component.long_name || '',
+					shortText: component.short_name || '',
+					types: component.types || [],
+				}))
 			: [];
 
 		return this;
@@ -319,22 +306,25 @@ export class LegacyPlacesAutocomplete {
 	 */
 	fetchPlaceDetails(placeId, fields) {
 		return new Promise((resolve, reject) => {
-			this.placesService.getDetails({
-				placeId,
-				fields,
-			}, (place, status) => {
-				if (this.destroyed) {
-					reject(createPlacesError('Legacy place-details request', 'CANCELLED'));
-					return;
-				}
+			this.placesService.getDetails(
+				{
+					placeId,
+					fields,
+				},
+				(place, status) => {
+					if (this.destroyed) {
+						reject(createPlacesError('Legacy place-details request', 'CANCELLED'));
+						return;
+					}
 
-				if (status !== this.places.PlacesServiceStatus.OK || !place) {
-					reject(createPlacesError('Legacy place-details request', status));
-					return;
-				}
+					if (status !== this.places.PlacesServiceStatus.OK || !place) {
+						reject(createPlacesError('Legacy place-details request', status));
+						return;
+					}
 
-				resolve(place);
-			});
+					resolve(place);
+				}
+			);
 		});
 	}
 

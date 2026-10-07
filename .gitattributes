@@ -8,3 +8,6 @@
 *.png binary
 *.jpg binary
 *.zip binary
+
+# Preserve bundled third-party source bytes, as in the Gravity standalone.
+assets/js/editor/vendor/choices.js -text

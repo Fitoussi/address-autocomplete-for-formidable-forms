@@ -43,7 +43,9 @@ export function loadGooglePlaces(config = {}) {
 		return placesPromise;
 	}
 	placesPromise = (async () => {
-		const alreadyLoading = Array.from(document.scripts).some(script => /^https?:\/\/maps\.(googleapis|google)\.com\/maps\/api\/js(?:\?|$)/.test(script.src));
+		const alreadyLoading = Array.from(document.scripts).some((script) =>
+			/^https?:\/\/maps\.(googleapis|google)\.com\/maps\/api\/js(?:\?|$)/.test(script.src)
+		);
 		if (!globalThis.google?.maps && !alreadyLoading && !config.disableGoogleApi) {
 			if (!config.googleMapsBrowserApiKey) {
 				throw new Error('A Google browser API key is required for autocomplete.');
@@ -51,14 +53,20 @@ export function loadGooglePlaces(config = {}) {
 			await new Promise((resolve, reject) => {
 				const script = document.createElement('script');
 				const callback = 'frmgeoacGooglePlacesReady';
-				const params = new URLSearchParams({key: config.googleMapsBrowserApiKey, libraries: 'places', v: 'weekly', loading: 'async', callback});
+				const params = new URLSearchParams({
+					key: config.googleMapsBrowserApiKey,
+					libraries: 'places',
+					v: 'weekly',
+					loading: 'async',
+					callback,
+				});
 				if (config.languageCode) {
 					params.set('language', config.languageCode);
 				}
 				if (config.regionCode) {
 					params.set('region', config.regionCode);
 				}
-				const finish = error => {
+				const finish = (error) => {
 					clearTimeout(timeout);
 					delete globalThis[callback];
 					if (error) {
@@ -68,7 +76,10 @@ export function loadGooglePlaces(config = {}) {
 						resolve();
 					}
 				};
-				const timeout = setTimeout(() => finish(new Error('Google Places loading timed out.')), 15000);
+				const timeout = setTimeout(
+					() => finish(new Error('Google Places loading timed out.')),
+					15000
+				);
 				globalThis[callback] = () => finish();
 				script.async = true;
 				script.src = `https://maps.googleapis.com/maps/api/js?${params}`;
@@ -80,7 +91,7 @@ export function loadGooglePlaces(config = {}) {
 		if (maps.importLibrary) {
 			await maps.importLibrary('places');
 		}
-	})().catch(error => {
+	})().catch((error) => {
 		placesPromise = undefined;
 		throw error;
 	});

@@ -1,8 +1,7 @@
 <?php
 /**
  * Plugin Name: Address Autocomplete for Formidable Forms
- * Plugin URI: https://formidablegeolocation.com
- * Description: Modern Google Places autocomplete in dedicated and native Formidable Forms Address fields. Includes country and language controls, location bias and required suggestion selection. Requires Formidable Forms and your own Google API key.
+ * Description: Add modern Google Places suggestions to Formidable Forms. Dedicated Address field, native Address autofill, country/type/language controls, location bias, required selection and admin entry map links. Requires Formidable Forms and your own Google API key.
  * Version: 1.0.0
  * Author: Eyal Fitoussi
  * Author URI: https://www.wpgeo.com
@@ -48,5 +47,8 @@ spl_autoload_register(
 	}
 );
 
+// Record first activation only; do not redirect or alter host settings.
+register_activation_hook( __FILE__, [ \FormidableGeolocationAutocomplete\Admin\SetupNotice::class, 'activate' ] );
+
 // Inspect all active plugin bootstraps before registering overlapping field types.
-add_action( 'plugins_loaded', array( FormidableGeolocationAutocomplete\Loader::class, 'load' ), 20 );
+add_action( 'plugins_loaded', [ FormidableGeolocationAutocomplete\Loader::class, 'load' ], 20 );

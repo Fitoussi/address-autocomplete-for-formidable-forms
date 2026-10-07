@@ -25,7 +25,14 @@ export function isEnabled(value) {
  */
 export function normalizeList(value) {
 	const items = Array.isArray(value) ? value : String(value || '').split(',');
-	return [...new Set(items.filter(item => typeof item === 'string').map(item => item.trim()).filter(Boolean))];
+	return [
+		...new Set(
+			items
+				.filter((item) => typeof item === 'string')
+				.map((item) => item.trim())
+				.filter(Boolean)
+		),
+	];
 }
 
 /**
@@ -38,11 +45,13 @@ export function normalizeList(value) {
  */
 function point(value) {
 	const parts = String(value || '').split(',');
-	if (parts.length !== 2 || parts.some(part => part.trim() === '')) {
+	if (parts.length !== 2 || parts.some((part) => part.trim() === '')) {
 		return null;
 	}
 	const [lat, lng] = parts.map(Number);
-	return Number.isFinite(lat) && Number.isFinite(lng) && Math.abs(lat) <= 90 && Math.abs(lng) <= 180 ? {lat, lng} : null;
+	return Number.isFinite(lat) && Number.isFinite(lng) && Math.abs(lat) <= 90 && Math.abs(lng) <= 180
+		? { lat, lng }
+		: null;
 }
 
 /**
@@ -62,17 +71,23 @@ export function buildAddressOptions(field, config = {}) {
 	};
 
 	if (field.frmgeo_autocomplete_restriction_usage === 'proximity') {
-		const center = point(`${field.frmgeo_autocomplete_proximity_lat},${field.frmgeo_autocomplete_proximity_lng}`);
+		const center = point(
+			`${field.frmgeo_autocomplete_proximity_lat},${field.frmgeo_autocomplete_proximity_lng}`
+		);
 		const radius = Number(field.frmgeo_autocomplete_proximity_radius);
 		if (center && Number.isFinite(radius) && radius > 0 && radius <= 50000) {
-			options.locationBias = {center, radius};
+			options.locationBias = { center, radius };
 		}
 	} else if (field.frmgeo_autocomplete_restriction_usage === 'area_bounds') {
 		const sw = point(field.frmgeo_autocomplete_bounds_sw_point);
 		const ne = point(field.frmgeo_autocomplete_bounds_ne_point);
 		if (sw && ne && sw.lat <= ne.lat) {
-			const bounds = {south: sw.lat, west: sw.lng, north: ne.lat, east: ne.lng};
-			options[isEnabled(field.frmgeo_address_autocomplete_strict_bounds) ? 'locationRestriction' : 'locationBias'] = bounds;
+			const bounds = { south: sw.lat, west: sw.lng, north: ne.lat, east: ne.lng };
+			options[
+				isEnabled(field.frmgeo_address_autocomplete_strict_bounds)
+					? 'locationRestriction'
+					: 'locationBias'
+			] = bounds;
 		}
 	}
 

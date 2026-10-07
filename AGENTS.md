@@ -1,5 +1,9 @@
 # Standalone plugin guidance
 
+Use the Standalone bootstrap convention in docs/README.md for this and future
+autocomplete plugins: isolated PHP identities, deferred premium-wins guard,
+unchanged saved data/API keys, and short arrays in production PHP.
+
 Read docs/README.md before changing this repository. Inspect its branch, HEAD,
 remote and entire working tree; preserve user changes.
 

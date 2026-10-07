@@ -1,15 +1,96 @@
-// Scoped native builder additions; no framework styles.
+// Native Formidable builder additions; no framework styles.
 .frmgeoac-options {
-	margin: 16px 0;
-	summary { cursor: pointer; font-weight: 600; padding: 12px 0; }
-	label { display: block; margin-bottom: 6px; }
-	select, input[type="text"] { width: 100%; }
-	[hidden] { display: none !important; }
+	.frmgeoac-option {
+		grid-column: span 12;
+		margin: 0 0 16px;
+	}
+	label:not(.frmgeoac-checkbox-label) {
+		display: block;
+		margin-bottom: 6px;
+	}
+	.frmgeoac-checkbox-label {
+		display: inline;
+		font-weight: 400;
+	}
+	select,
+	input[type='text'] {
+		width: 100%;
+	}
+	[hidden] {
+		display: none !important;
+	}
+	.choices {
+		margin: 0;
+		padding: 0;
+	}
+	.choices__inner {
+		box-sizing: border-box;
+		background: #fff;
+		border: 1px solid #d0d5dd;
+		border-radius: 8px;
+		min-height: 40px;
+		padding: 4px 10px;
+	}
+	.choices__input.choices__input--cloned {
+		border: 0;
+		box-shadow: none;
+		background: transparent;
+		margin: 0;
+		padding: 4px 0;
+		min-height: 30px;
+		font: inherit;
+	}
+	.choices__list--multiple .choices__item {
+		margin: 3px 4px 3px 0;
+	}
+	.choices__input {
+		width: 100% !important;
+	}
+	.choices__list--dropdown {
+		z-index: 99;
+	}
+	.choices__list--dropdown .choices__list {
+		max-height: 240px;
+		overscroll-behavior: contain;
+	}
 }
-.frmgeoac-multiple { min-height: 140px; }
-.frmgeoac-promotions {
-	display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 16px 0;
-	h3 { grid-column: 1 / -1; margin: 0; }
-	a { display: flex; gap: 6px; align-items: center; padding: 10px; border: 1px dashed #c5cbd3; border-radius: 5px; color: #66717f; background: #f6f8fb; text-decoration: none; }
-	a:hover, a:focus { color: #123d6c; border-color: #123d6c; }
+.frmgeoac-settings-notice {
+	margin: 20px 0;
+	padding: 20px 24px;
+	background: #f1f7fc;
+	border: 1px solid #d4e3f1;
+	border-left: 4px solid #1767a6;
+	border-radius: 4px;
+	color: #263c53;
+	.button-primary {
+		background: #2563eb;
+		border-color: #2563eb;
+		color: #fff;
+	}
+	p {
+		margin: 0 0 14px;
+	}
+	.frmgeo-product-settings__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+}
+
+// Override the host's global-settings divider only for this notice heading.
+#form_global_settings .frmgeoac-settings-notice > h3 {
+	margin: 0 0 10px;
+	padding: 0;
+	border: 0;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.4;
+	text-transform: none;
+	color: #263c53;
+}
+
+// Premium hides the synthetic host documentation link in its native upsell modal.
+body.frm-admin-page-formidableedit a[href*="https://formidableforms.com/frmgeo_hide"]
+{
+	display: none !important;
 }

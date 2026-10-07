@@ -46,7 +46,6 @@ let sharedProviderProbe = null;
  * @property {LegacyPlacesAutocomplete|null} legacyAutocomplete Optional fallback provider.
  */
 export class AddressAutocomplete {
-
 	/**
 	 * Creates a new address autocomplete instance and optionally initializes it immediately.
 	 *
@@ -64,9 +63,8 @@ export class AddressAutocomplete {
 	 * @property {AddressAutocomplete} detail.instance - The autocomplete instance.
 	 */
 	constructor(args, options = {}, objectInstance = undefined) {
-
 		const startEvent = new CustomEvent(`${args.prefix}_address_autocomplete_start`, {
-			detail: { args, options, objectInstance, instance: this }
+			detail: { args, options, objectInstance, instance: this },
 		});
 		document.dispatchEvent(startEvent);
 
@@ -81,7 +79,7 @@ export class AddressAutocomplete {
 			outputField: 'formattedAddress',
 			autoInit: true,
 			debounceDelay: 50,
-			...args
+			...args,
 		};
 
 		this.prefix = this.args.prefix;
@@ -114,9 +112,11 @@ export class AddressAutocomplete {
 		 * @type {CustomEvent}
 		 * @property {AddressAutocomplete} detail.instance - The autocomplete instance.
 		 */
-		document.dispatchEvent(new CustomEvent(`${this.prefix}_address_autocomplete_init_before`, {
-			detail: { instance: this }
-		}));
+		document.dispatchEvent(
+			new CustomEvent(`${this.prefix}_address_autocomplete_init_before`, {
+				detail: { instance: this },
+			})
+		);
 
 		if (this.args.autoInit) {
 			this.init();
@@ -153,20 +153,25 @@ export class AddressAutocomplete {
 	 * @returns {void}
 	 */
 	initializeOptions() {
-		this.options = Object.assign({
-			input: '',
-			includedPrimaryTypes: [],
-			includedRegionCodes: [],
-			inputOffset: null,
-			language: 'en-US',
-			locationBias: null, // LatLng|LatLngLiteral|LatLngBounds|LatLngBoundsLiteral|Circle|CircleLiteral|string
-			locationRestriction: null, // LatLngBounds|LatLngBoundsLiteral
-			origin: null,
-			region: 'us',
-			sessionToken: null,
-		}, this.options);
+		this.options = Object.assign(
+			{
+				input: '',
+				includedPrimaryTypes: [],
+				includedRegionCodes: [],
+				inputOffset: null,
+				language: 'en-US',
+				locationBias: null, // LatLng|LatLngLiteral|LatLngBounds|LatLngBoundsLiteral|Circle|CircleLiteral|string
+				locationRestriction: null, // LatLngBounds|LatLngBoundsLiteral
+				origin: null,
+				region: 'us',
+				sessionToken: null,
+			},
+			this.options
+		);
 
-		this.options.includedPrimaryTypes = this.normalizeIncludedPrimaryTypes(this.options.includedPrimaryTypes);
+		this.options.includedPrimaryTypes = this.normalizeIncludedPrimaryTypes(
+			this.options.includedPrimaryTypes
+		);
 	}
 
 	/**
@@ -192,7 +197,9 @@ export class AddressAutocomplete {
 		const requestedTypes = Array.isArray(types) ? types : [types];
 		const normalizedTypes = requestedTypes
 			.map((type) => {
-				const value = String(type || '').trim().toLowerCase();
+				const value = String(type || '')
+					.trim()
+					.toLowerCase();
 				// Preserve ordinary primary types such as restaurant/gas_station;
 				// the old alias-only lookup silently discarded the editor's choices.
 				return typeMap[value] || value;
@@ -338,7 +345,7 @@ export class AddressAutocomplete {
 		//    (anything other than input + autocomplete container)
 		// --------------------------------------------
 		const children = [...wrapper.children];
-		const nonEssentialChildren = children.filter(child => {
+		const nonEssentialChildren = children.filter((child) => {
 			// Skip the input itself
 			if (child === this.inputElement) {
 				return false;
@@ -400,7 +407,7 @@ export class AddressAutocomplete {
 			return;
 		}
 
-		const inputValue = event.target.value.trim();  // Get the input value and trim whitespace
+		const inputValue = event.target.value.trim(); // Get the input value and trim whitespace
 		// If input is empty, clear the suggestions and exit the function
 		if (!inputValue) {
 			this.resetInteractionState();
@@ -420,19 +427,20 @@ export class AddressAutocomplete {
 		 * @property {Object} detail.options - The current request options.
 		 * @property {AddressAutocomplete} detail.instance - The autocomplete instance.
 		 */
-		document.dispatchEvent(new CustomEvent(`${this.prefix}_address_autocomplete_fetch_request_before`, {
-			detail: { options: this.options, instance: this }
-		}));
+		document.dispatchEvent(
+			new CustomEvent(`${this.prefix}_address_autocomplete_fetch_request_before`, {
+				detail: { options: this.options, instance: this },
+			})
+		);
 
 		try {
-
 			// Fetch suggestions from Places API (New), falling back once to the
 			// isolated legacy adapter when the new API is unavailable for this key.
 			const { suggestions } = await this.fetchSuggestions();
 
 			// Check if the response is valid
 			if (!suggestions || !Array.isArray(suggestions)) {
-				console.error("Invalid suggestions response:", suggestions);
+				console.error('Invalid suggestions response:', suggestions);
 				return;
 			}
 
@@ -452,7 +460,7 @@ export class AddressAutocomplete {
 			this.buildSuggestionsDropdown(suggestions);
 		} catch (error) {
 			// Log any errors during the fetch operation
-			console.error("Autocomplete Error:", error);
+			console.error('Autocomplete Error:', error);
 		}
 
 		/**
@@ -461,9 +469,11 @@ export class AddressAutocomplete {
 		 * @type {CustomEvent}
 		 * @property {AddressAutocomplete} detail.instance - The autocomplete instance.
 		 */
-		document.dispatchEvent(new CustomEvent(`${this.prefix}_address_autocomplete_fetch_request_after`, {
-			detail: { instance: this }
-		}));
+		document.dispatchEvent(
+			new CustomEvent(`${this.prefix}_address_autocomplete_fetch_request_after`, {
+				detail: { instance: this },
+			})
+		);
 	}
 
 	/**
@@ -535,7 +545,8 @@ export class AddressAutocomplete {
 	 * @returns {Promise<Object>} Provider response containing suggestions.
 	 */
 	async fetchPlacesNewSuggestions() {
-		const fetchSuggestions = globalThis.google?.maps?.places?.AutocompleteSuggestion?.fetchAutocompleteSuggestions;
+		const fetchSuggestions =
+			globalThis.google?.maps?.places?.AutocompleteSuggestion?.fetchAutocompleteSuggestions;
 
 		if (typeof fetchSuggestions !== 'function') {
 			throw new TypeError('Google Places AutocompleteSuggestion is unavailable.');
@@ -561,11 +572,15 @@ export class AddressAutocomplete {
 		this.autocompleteProvider = PLACES_LEGACY_PROVIDER;
 
 		if (!wasLegacyProvider) {
-			document.dispatchEvent(new CustomEvent(`${this.prefix}_address_autocomplete_legacy_fallback`, {
-				detail: { error, instance: this }
-			}));
+			document.dispatchEvent(
+				new CustomEvent(`${this.prefix}_address_autocomplete_legacy_fallback`, {
+					detail: { error, instance: this },
+				})
+			);
 
-			console.warn('Places API (New) is unavailable; using the temporary legacy autocomplete fallback.');
+			console.warn(
+				'Places API (New) is unavailable; using the temporary legacy autocomplete fallback.'
+			);
 		}
 	}
 
@@ -600,8 +615,7 @@ export class AddressAutocomplete {
 	 */
 	fetchLegacySuggestions(primaryError = null) {
 		this.autocompleteProvider = PLACES_LEGACY_PROVIDER;
-		return this.getLegacyAutocomplete(primaryError)
-			.fetchAutocompleteSuggestions(this.options);
+		return this.getLegacyAutocomplete(primaryError).fetchAutocompleteSuggestions(this.options);
 	}
 
 	/**
@@ -634,7 +648,7 @@ export class AddressAutocomplete {
 				this.handlePlaceSelection(place, rawPrediction, this.selectionContextId);
 			});
 			li.addEventListener('mouseenter', () => {
-				[...dropdown.querySelectorAll('li')].forEach(item => item.classList.remove('active'));
+				[...dropdown.querySelectorAll('li')].forEach((item) => item.classList.remove('active'));
 				li.classList.add('active');
 			});
 			li.addEventListener('mouseleave', () => {
@@ -669,7 +683,7 @@ export class AddressAutocomplete {
 	 */
 	addKeyboardNavigation($dropdown) {
 		let selectedIndex = -1; // Tracks the selected item index in the dropdown
-		const items = $dropdown.querySelectorAll("li"); // List items in the dropdown (native NodeList)
+		const items = $dropdown.querySelectorAll('li'); // List items in the dropdown (native NodeList)
 
 		// Remove any previous keydown event listener
 		if (this._keydownHandler) {
@@ -681,19 +695,19 @@ export class AddressAutocomplete {
 			}
 
 			switch (event.key) {
-				case "ArrowDown":
+				case 'ArrowDown':
 					event.preventDefault();
 					selectedIndex = (selectedIndex + 1) % items.length;
-					items.forEach(el => el.classList.remove('active'));
+					items.forEach((el) => el.classList.remove('active'));
 					items[selectedIndex].classList.add('active');
 					break;
-				case "ArrowUp":
+				case 'ArrowUp':
 					event.preventDefault();
 					selectedIndex = (selectedIndex - 1 + items.length) % items.length;
-					items.forEach(el => el.classList.remove('active'));
+					items.forEach((el) => el.classList.remove('active'));
 					items[selectedIndex].classList.add('active');
 					break;
-				case "Enter":
+				case 'Enter':
 					if (selectedIndex > -1) {
 						event.preventDefault();
 						items[selectedIndex].click();
@@ -701,8 +715,8 @@ export class AddressAutocomplete {
 						this.clearSuggestions();
 					}
 					break;
-				case "Escape":
-				case "Tab":
+				case 'Escape':
+				case 'Tab':
 					this.clearSuggestions();
 					break;
 			}
@@ -779,7 +793,6 @@ export class AddressAutocomplete {
 
 		this._blurHandler = () => {
 			this._blurTimer = setTimeout(() => {
-
 				// Always clear dropdown
 				clearTimeout(this.debounceTimer);
 				this.clearSuggestions();
@@ -792,7 +805,6 @@ export class AddressAutocomplete {
 
 				// Reset for next interaction
 				this.userSelected = false;
-
 			}, 200);
 		};
 
@@ -817,7 +829,6 @@ export class AddressAutocomplete {
 	 * @returns {Promise<void>}
 	 */
 	async handlePlaceSelection(place, rawPrediction = null, contextId = this.selectionContextId) {
-
 		/**
 		 * @event wpgeofw_address_autocomplete_place_selection_before
 		 * @description Fired before place data is processed and set in the input.
@@ -825,16 +836,18 @@ export class AddressAutocomplete {
 		 * @property {Object} detail.place - The place object selected.
 		 * @property {AddressAutocomplete} detail.instance - The autocomplete instance.
 		 */
-		document.dispatchEvent(new CustomEvent(`${this.prefix}_address_autocomplete_place_selection_before`, {
-			detail: { place, instance: this }
-		}));
+		document.dispatchEvent(
+			new CustomEvent(`${this.prefix}_address_autocomplete_place_selection_before`, {
+				detail: { place, instance: this },
+			})
+		);
 
 		clearTimeout(this.debounceTimer);
 
 		if (!place) {
-			console.error("Invalid place object:", place);
+			console.error('Invalid place object:', place);
 			return;
-	}
+		}
 
 		this.pendingSelections += 1;
 		try {
@@ -842,10 +855,14 @@ export class AddressAutocomplete {
 
 			// Fetch fields and ensure the place object is ready
 			await place.fetchFields({
-				fields: this.args.fetchFields
+				fields: this.args.fetchFields,
 			});
 
-			if (this._destroyed || !this.inputElement.isConnected || contextId !== this.selectionContextId) {
+			if (
+				this._destroyed ||
+				!this.inputElement.isConnected ||
+				contextId !== this.selectionContextId
+			) {
 				return;
 			}
 
@@ -872,17 +889,21 @@ export class AddressAutocomplete {
 			 * @property {Object} detail.place - The selected place object.
 			 * @property {AddressAutocomplete} detail.instance - The autocomplete instance.
 			 */
-			document.dispatchEvent(new CustomEvent(`${this.prefix}_address_autocomplete_place_selection_after`, {
-				detail: { value: this.inputElement.value, place, instance: this }
-			}));
+			document.dispatchEvent(
+				new CustomEvent(`${this.prefix}_address_autocomplete_place_selection_after`, {
+					detail: { value: this.inputElement.value, place, instance: this },
+				})
+			);
 
 			// Trigger custom 'place_changed' event on the input
-			this.inputElement.dispatchEvent(new CustomEvent('place_changed', {
-				detail: {
-					selected: this.inputElement.value,
-					place: place
-				}
-			}));
+			this.inputElement.dispatchEvent(
+				new CustomEvent('place_changed', {
+					detail: {
+						selected: this.inputElement.value,
+						place: place,
+					},
+				})
+			);
 
 			if (!this.suppressChangeOnBlur) {
 				this.inputElement.dispatchEvent(new Event('change', { bubbles: true }));
@@ -890,13 +911,12 @@ export class AddressAutocomplete {
 
 			// Refresh the autocomplete token
 			this.refreshAutocompleteToken(this.options);
-
 		} catch (error) {
-			console.error("Error fetching place fields:", error);
+			console.error('Error fetching place fields:', error);
 		} finally {
 			this.pendingSelections -= 1;
 		}
-    }
+	}
 
 	/**
 	 * Generates a new session token for the current autocomplete session and assigns it

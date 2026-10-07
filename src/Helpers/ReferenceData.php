@@ -27,7 +27,7 @@ final class ReferenceData {
 	 */
 	public static function get_countries() {
 		// ISO-3166 alpha-2 country codes mapped to localized names.
-		$countries = array(
+		$countries = [
 			'AF' => 'Afghanistan (‫افغانستان‬‎)',
 			'AX' => 'Åland Islands (Åland)',
 			'AL' => 'Albania (Shqipëri)',
@@ -284,7 +284,7 @@ final class ReferenceData {
 			'YE' => 'Yemen (‫اليمن‬‎)',
 			'ZM' => 'Zambia',
 			'ZW' => 'Zimbabwe',
-		);
+		];
 		// Allow external filtering of the country list.
 		// Preserve the established premium-compatible public data filters.
 		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
@@ -299,7 +299,7 @@ final class ReferenceData {
 	 */
 	public static function get_languages() {
 		// Google Maps supported language codes mapped to human-readable labels.
-		$languages = array(
+		$languages = [
 			'af'     => 'Afrikaans',
 			'ak'     => 'Akan',
 			'sq'     => 'Albanian',
@@ -437,7 +437,7 @@ final class ReferenceData {
 			'yi'     => 'Yiddish',
 			'yo'     => 'Yoruba',
 			'zu'     => 'Zulu',
-		);
+		];
 		// Allow external filtering of the supported languages list.
 		// Preserve the established premium-compatible public data filters.
 		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
@@ -449,14 +449,16 @@ final class ReferenceData {
 	 *
 	 * @param array $values Associative reference values.
 	 * @return array Native select options.
+	 *
+	 * @since 1.0.0
 	 */
 	private static function as_options( $values ) {
-		$options = array();
+		$options = [];
 		foreach ( $values as $value => $label ) {
-			$options[] = array(
+			$options[] = [
 				'value' => (string) $value,
 				'label' => $label,
-			);
+			];
 		}
 		return $options;
 	}
@@ -464,6 +466,8 @@ final class ReferenceData {
 	 * Country select options.
 	 *
 	 * @return array Country select options.
+	 *
+	 * @since 1.0.0
 	 */
 	public static function get_countries_as_options() {
 		return self::as_options( self::get_countries() );
@@ -472,6 +476,8 @@ final class ReferenceData {
 	 * Language select options.
 	 *
 	 * @return array Language select options.
+	 *
+	 * @since 1.0.0
 	 */
 	public static function get_languages_as_options() {
 		return self::as_options( self::get_languages() );
@@ -480,10 +486,12 @@ final class ReferenceData {
 	 * Common supported Places primary types and collections.
 	 *
 	 * @return array Common supported Places primary types and collections.
+	 *
+	 * @since 1.0.0
 	 */
 	public static function get_place_types_as_options() {
 		return self::as_options(
-			array(
+			[
 				'(regions)'      => __( 'Regions', 'address-autocomplete-for-formidable-forms' ),
 				'(cities)'       => __( 'Cities', 'address-autocomplete-for-formidable-forms' ),
 				'street_address' => __( 'Street addresses', 'address-autocomplete-for-formidable-forms' ),
@@ -495,7 +503,7 @@ final class ReferenceData {
 				'school'         => __( 'Schools', 'address-autocomplete-for-formidable-forms' ),
 				'hospital'       => __( 'Hospitals', 'address-autocomplete-for-formidable-forms' ),
 				'airport'        => __( 'Airports', 'address-autocomplete-for-formidable-forms' ),
-			)
+			]
 		);
 	}
 }

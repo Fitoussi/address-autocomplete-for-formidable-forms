@@ -82,6 +82,13 @@
 .frmgeo-product-dashboard p {
   color: var(--frmgeo-page-muted);
 }
+.frmgeo-product-dashboard--overview p,
+.frmgeo-product-dashboard--overview li {
+  font-size: 15px;
+}
+.frmgeo-product-dashboard--overview .frmgeo-product-dashboard__note {
+  font-size: 15px !important;
+}
 .frmgeo-product-dashboard__header {
   display: flex;
   flex-wrap: wrap;
@@ -101,7 +108,7 @@
 }
 .frmgeo-product-dashboard__eyebrow {
   margin: 0 0 4px;
-  font-size: 12px !important;
+  font-size: 13px !important;
 }
 .frmgeo-product-dashboard__actions {
   display: flex;
@@ -244,7 +251,25 @@
   padding-top: 16px;
 }
 .frmgeo-product-dashboard__feature-footer p {
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.frmgeo-product-dashboard__feature-footer p .dashicons {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+.frmgeo-product-dashboard__feature-footer a {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.frmgeo-product-dashboard__feature-footer .frmgeo-product-dashboard__demo-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
 }
 .frmgeo-product-dashboard__badge {
   display: inline-block;
@@ -252,7 +277,7 @@
   border-radius: 5px;
   background: #eaf5ef;
   color: #216640;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
 }
 .frmgeo-product-dashboard__badge--available {
@@ -260,7 +285,7 @@
   color: var(--frmgeo-page-accent);
 }
 .frmgeo-product-dashboard__note {
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .frmgeo-product-dashboard__placeholder {
   display: none;

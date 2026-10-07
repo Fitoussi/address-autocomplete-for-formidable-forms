@@ -4,7 +4,7 @@
 	"description": "Google Places address autocomplete for Formidable Forms",
 	"scripts": {
 		"test": "npm run test:php && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/js/*.test.mjs",
-		"test:php": "php tests/contracts.php",
+		"test:php": "php tests/contracts.php && php tests/activation-notice.php && php tests/overview.php && php tests/bootstrap-conflict.php",
 		"package": "npm run build && php tools/package/build.php",
 		"build": "npm run css && node build.js",
 		"css": "sass assets/scss/admin/frmgeo-admin.scss:build/css/admin/frmgeo-admin.css assets/scss/admin/frmgeo-product-dashboard.scss:build/css/admin/frmgeo-product-dashboard.css --no-source-map && sass assets/scss/admin/frmgeo-admin.scss:build/css/admin/frmgeo-admin.min.css assets/scss/admin/frmgeo-product-dashboard.scss:build/css/admin/frmgeo-product-dashboard.min.css --style=compressed --no-source-map",

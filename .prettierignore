@@ -1,0 +1,6 @@
+node_modules/
+build/
+assets/js/editor/vendor/
+tools/vendor/
+dist/
+package-lock.json

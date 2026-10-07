@@ -13,7 +13,10 @@
  */
 export function getNativeAddressParts(place) {
 	const components = place.addressComponents || [];
-	const find = (...types) => types.map(type => components.find(component => component.types?.includes(type))).find(Boolean);
+	const find = (...types) =>
+		types
+			.map((type) => components.find((component) => component.types?.includes(type)))
+			.find(Boolean);
 	const long = (...types) => find(...types)?.longText || '';
 	const short = (...types) => find(...types)?.shortText || '';
 	const postcode = long('postal_code');
@@ -21,7 +24,11 @@ export function getNativeAddressParts(place) {
 	return {
 		// City/region suggestions may have no street components. Keep their
 		// formatted address instead of clearing the user's first Address input.
-		line1: [long('street_number'), long('route')].filter(Boolean).join(' ') || long('premise') || place.formattedAddress || '',
+		line1:
+			[long('street_number'), long('route')].filter(Boolean).join(' ') ||
+			long('premise') ||
+			place.formattedAddress ||
+			'',
 		line2: long('subpremise'),
 		city: long('locality', 'postal_town', 'sublocality_level_1', 'administrative_area_level_3'),
 		state: long('administrative_area_level_1'),
@@ -45,9 +52,19 @@ export function resolveInputValue(input, value, alternatives = []) {
 	if (input.tagName !== 'SELECT' || value === '') {
 		return value;
 	}
-	const codeOption = alternatives.map(code => Array.from(input.options).find(option => !option.disabled && option.dataset.code === code)).find(Boolean);
+	const codeOption = alternatives
+		.map((code) =>
+			Array.from(input.options).find((option) => !option.disabled && option.dataset.code === code)
+		)
+		.find(Boolean);
 	if (codeOption) return codeOption.value;
-	return [value, ...alternatives].find(candidate => candidate && Array.from(input.options).some(option => !option.disabled && option.value === candidate)) || '';
+	return (
+		[value, ...alternatives].find(
+			(candidate) =>
+				candidate &&
+				Array.from(input.options).some((option) => !option.disabled && option.value === candidate)
+		) || ''
+	);
 }
 
 /**
@@ -79,6 +96,6 @@ export function populateNativeAddress(wrapper, place) {
 			continue;
 		}
 		input.value = resolveInputValue(input, value, alternatives);
-		input.dispatchEvent(new Event('change', {bubbles: true}));
+		input.dispatchEvent(new Event('change', { bubbles: true }));
 	}
 }

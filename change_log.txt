@@ -1,5 +1,9 @@
 1.0.0
+* One-time administrator setup notice with permanent dismissal and no activation redirect.
 - Initial standalone Address autocomplete plugin for Formidable Forms.
 - Native global settings and premium-compatible saved Address options.
-- Local dashboard and four non-functional editor promotions.
+- Country/type/language controls, geographic bias and required suggestion selection.
+- Native Address autofill and dedicated-field admin entry map links.
+- Local dashboard and four discovery-only editor links.
+- Real frontend screenshot and directory listing documentation.
 - Standalone Google Places service without WPGeo Framework or licensing.

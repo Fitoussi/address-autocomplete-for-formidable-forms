@@ -1,0 +1,16 @@
+SCREENSHOT ASSETS — Formidable Forms
+
+assets/screenshots/screenshot-1.png
+Live Google Places suggestions in the dedicated Formidable Forms Address field.
+Captured from this plugin's own isolated local QA form on 2026-10-07.
+The image retains Google attribution and contains no API key or private entry.
+The matching directory caption is in readme.txt.
+
+For an approved WordPress.org release, copy this file to the separate top-level
+SVN assets/screenshot-1.png directory, outside trunk. This pass stages a duplicate
+in the local submission-prep artifact only; nothing has been uploaded.
+
+Additional editor/global-preference captures await a working dedicated signed-in
+screenshot browser and owner review. Formidable's native Address autofill and
+entry-map screenshots are also pending. Do not add captions for absent files.
+No banner or icon is included in this candidate.
